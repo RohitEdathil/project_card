@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from fastapi.responses import Response, RedirectResponse
 from jinja2 import Environment, FileSystemLoader
-from urllib import request
+from urllib.request import urlopen, Request
 from src.themes import THEMES
 from json import loads
 from src.formatters import *
+from os import environ
 app = FastAPI()
 renderer = Environment(loader=FileSystemLoader('templates'))
 
@@ -12,6 +13,8 @@ templates = {
     "project_card": renderer.get_template('project_card.svg'),
 }
 default_theme = 'dark-blue'
+
+GITHUB_TOKEN = environ.get('GITHUB_TOKEN')
 
 
 @app.get('/')
@@ -21,13 +24,16 @@ async def index():
 
 @app.get("/{template_name}/{user}/{repo}")
 async def get_project_card(user: str, repo: str, template_name: str, theme: str = default_theme):
-    """"
+    """
     Get a project card for a given user and repo.
     """
     # Fetch the data from github
     try:
-        data = request.urlopen(
-            f"https://api.github.com/repos/{user}/{repo}").read()
+        print(GITHUB_TOKEN)
+        req = Request(f"https://api.github.com/repos/{user}/{repo}")
+        req.add_header("Authorization",
+                       f"token {GITHUB_TOKEN}")
+        data = urlopen(req).read()
 
     except Exception as e:
         return {"error": str(e)}
