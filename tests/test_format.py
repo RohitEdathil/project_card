@@ -36,3 +36,5 @@ def test_title_large():
     title = "a"*20
     assert format_title(
         title) == "a"*13 + '...', 'Should return the same title if small'
+
+
