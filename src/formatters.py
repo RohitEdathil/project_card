@@ -83,3 +83,10 @@ def format_file(num: int) -> str:
             return f"{num:.0f}{unit}{suffix}"
         num /= 1024.0
     return f"{num:.1f}Yi{suffix}"
+
+
+def format_date(date: str) -> str:
+    """
+    Format dates using YYYY-MM-DD HH:MM:SS
+    """
+    return date.replace('T', ' ').replace('Z', '')

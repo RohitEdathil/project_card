@@ -25,6 +25,8 @@ def test_desc_very_large():
     assert format_desc(desc) == (
         "a"*35, "b"*35, "c"*32 + "..."), 'Splits into three and adds ... if very large'
 
+# Title tests
+
 
 def test_title_small():
     title = "Hello"
@@ -37,4 +39,10 @@ def test_title_large():
     assert format_title(
         title) == "a"*13 + '...', 'Should return the same title if small'
 
+# Date tests
 
+
+def test_date():
+    date = "2021-09-14T15:17:43Z"
+    assert format_date(
+        date) == "2021-09-14 15:17:43", 'Removes T and Z'
