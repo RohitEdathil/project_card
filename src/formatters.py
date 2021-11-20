@@ -32,7 +32,7 @@ def format_desc(desc: str) -> Tuple[str, str, str]:
 
 def format_number(n: int) -> str:
     """
-    Formats large numbers using K M B T
+    Formats large numbers using K M B T Q
     """
 
     if n < 1000:
@@ -71,3 +71,15 @@ def format_number(n: int) -> str:
         return str(f"{n/1000**4:.0f}T")
 
     return str(f"{n/1000**5:.0f}Q")
+
+
+def format_file(num: int) -> str:
+    """
+    Format sizes using KB MB GB TB
+    """
+    suffix = "B"
+    for unit in ["", "K", "M", "G", "T", "P", "E", "Z"]:
+        if abs(num) < 1024.0:
+            return f"{num:.0f}{unit}{suffix}"
+        num /= 1024.0
+    return f"{num:.1f}Yi{suffix}"
