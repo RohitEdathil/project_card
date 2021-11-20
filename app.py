@@ -4,7 +4,7 @@ from jinja2 import Environment, FileSystemLoader
 from urllib.request import urlopen, Request
 from src.themes import THEMES
 from json import loads
-from src.formatters import *
+from src.template_data_assembly import assemble
 from os import environ
 app = FastAPI()
 renderer = Environment(loader=FileSystemLoader('templates'))
@@ -19,7 +19,26 @@ GITHUB_TOKEN = environ.get('GITHUB_TOKEN')
 
 @app.get('/')
 async def index():
+    """
+    Redirects to documentation
+    """
     return RedirectResponse('/docs')
+
+
+@app.get('/themes')
+async def themes():
+    """
+    Returns a list of themes
+    """
+    return list(THEMES.keys())
+
+
+@app.get('/templates')
+async def template_list():
+    """
+    Returns a list of templates
+    """
+    return list(templates.keys())
 
 
 @app.get("/{template_name}/{user}/{repo}")
@@ -49,26 +68,7 @@ async def get_project_card(user: str, repo: str, template_name: str, theme: str 
     if not theme:
         return {"error": "theme not found"}
 
-    # Assembles the data
-    if template_name == "project_card":
-        template_data = {
-            "name": format_title(data["name"]),
-
-
-            "stars": format_number(data["stargazers_count"]),
-            "forks": format_number(data["forks_count"]),
-            "watch": format_number(data["watchers"]),
-
-            "size": format_file(data["size"]),
-            "issues": data["open_issues"],
-            "lang": data["language"],
-            "license": format_license(data["license"]["name"]) if data["license"] else "Unknown",
-
-            "created": format_date(data["created_at"]),
-            "updated": format_date(data["updated_at"]),
-        }
-        template_data["desc1"], template_data["desc2"], template_data["desc3"] = format_desc(
-            data["description"] if data["description"] else "~")
-        template_data.update(theme)
-        svg = template.render(template_data)
-        return Response(svg, media_type="image/svg+xml")
+    # Assembles the data for template
+    template_data = assemble(template_name, data, theme)
+    svg = template.render(template_data)
+    return Response(svg, media_type="image/svg+xml")
