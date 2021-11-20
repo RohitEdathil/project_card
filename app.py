@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import Response
+from fastapi.responses import Responss, RedirectResponse
 from jinja2 import Environment, FileSystemLoader
 from urllib import request
 from src.themes import THEMES
@@ -12,6 +12,11 @@ templates = {
     "project_card": renderer.get_template('project_card.svg'),
 }
 default_theme = 'dark-blue'
+
+
+@app.get('/')
+async def index():
+    return RedirectResponse('/docs')
 
 
 @app.get("/{template_name}/{user}/{repo}")

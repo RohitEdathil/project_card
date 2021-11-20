@@ -98,5 +98,5 @@ def format_license(license: str) -> str:
     """
     MAX = 21
     if len(license) > MAX:
-        title = license[:MAX-3] + '...'
-    return title
+        license = license[:MAX-3] + '...'
+    return license

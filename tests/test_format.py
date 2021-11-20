@@ -47,16 +47,16 @@ def test_date():
     assert format_date(
         date) == "2021-09-14 15:17:43", 'Removes T and Z'
 
-# Title tests
+# License tests
 
 
-def test_title_small():
-    title = "Hello"
-    assert format_title(
-        title) == title, 'Should return the same license'
+def test_license_small():
+    license = "Hello"
+    assert format_license(
+        license) == license, 'Should return the same license'
 
 
-def test_title_large():
-    title = "a"*25
-    assert format_title(
-        title) == "a"*13 + '...', 'Should return truncated'
+def test_license_large():
+    license = "a"*25
+    assert format_license(
+        license) == "a"*18 + '...', 'Should return truncated'
