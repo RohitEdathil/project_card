@@ -2,7 +2,10 @@ A service to display a quick summary of a project on GitHub.
 
 # Usage 📖
 
+Paste the code below with details filled in as specified below into your Readme.md.
+
 `{repo}` is the name of the repository.
+
 `{user}` is the name of the user.
 
 ```
