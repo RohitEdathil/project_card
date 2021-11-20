@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.responses import Responss, RedirectResponse
+from fastapi.responses import Response, RedirectResponse
 from jinja2 import Environment, FileSystemLoader
 from urllib import request
 from src.themes import THEMES
