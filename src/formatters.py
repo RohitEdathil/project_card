@@ -90,3 +90,13 @@ def format_date(date: str) -> str:
     Format dates using YYYY-MM-DD HH:MM:SS
     """
     return date.replace('T', ' ').replace('Z', '')
+
+
+def format_license(license: str) -> str:
+    """
+    Format license using a short name
+    """
+    MAX = 21
+    if len(license) > MAX:
+        title = license[:MAX-3] + '...'
+    return title

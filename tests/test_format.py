@@ -37,7 +37,7 @@ def test_title_small():
 def test_title_large():
     title = "a"*20
     assert format_title(
-        title) == "a"*13 + '...', 'Should return the same title if small'
+        title) == "a"*13 + '...', 'Should return trencated'
 
 # Date tests
 
@@ -46,3 +46,17 @@ def test_date():
     date = "2021-09-14T15:17:43Z"
     assert format_date(
         date) == "2021-09-14 15:17:43", 'Removes T and Z'
+
+# Title tests
+
+
+def test_title_small():
+    title = "Hello"
+    assert format_title(
+        title) == title, 'Should return the same license'
+
+
+def test_title_large():
+    title = "a"*25
+    assert format_title(
+        title) == "a"*13 + '...', 'Should return truncated'
