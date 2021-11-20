@@ -78,7 +78,7 @@ def format_file(num: int) -> str:
     Format sizes using KB MB GB TB
     """
     suffix = "B"
-    for unit in ["", "K", "M", "G", "T", "P", "E", "Z"]:
+    for unit in ["K", "M", "G", "T", "P", "E", "Z"]:
         if abs(num) < 1024.0:
             return f"{num:.0f}{unit}{suffix}"
         num /= 1024.0

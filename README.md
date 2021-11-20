@@ -11,4 +11,10 @@ A service to display a quick summary of a project on GitHub.
 
 An example of the project card:
 
-[![Project Card](https://project-card-app.herokuapp.com/project_card/RohitEdathil/project_card)](https://github.com/RohitEdathil/project_card)
+Here,
+
+`{repo}` : `linux`
+
+`{user}` : `RohitEdathil`
+
+[![Project Card](https://project-card-app.herokuapp.com/project_card/torvalds/linux)](https://github.com/torvalds/linux)
