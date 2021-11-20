@@ -15,7 +15,7 @@ Here,
 
 `{repo}` : `linux`
 
-`{user}` : `RohitEdathil`
+`{user}` : `torvalds`
 
 [![Project Card](https://project-card-app.herokuapp.com/project_card/torvalds/linux)](https://github.com/torvalds/linux)
 
