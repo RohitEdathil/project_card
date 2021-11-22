@@ -29,7 +29,7 @@ THEMES = {
         "background": "#FFFFFFFF",
 
         "text_1": "#000000",
-        "text_2": "#AAAAAA",
+        "text_2": "#555555",
         "text_3": "#0e78f0",
         "text_4": "#555555",
 
