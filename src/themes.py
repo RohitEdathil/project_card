@@ -35,6 +35,17 @@ THEMES = {
 
         "icons": "#0e78f0",
         "lines": "#0e78f0",
+    },
+    'dark-green': {
+        "background": "#0d240b",
+
+        "text_1": "#ffffff",
+        "text_2": "#97bf93",
+        "text_3": "#eafa0a",
+        "text_4": "#e4a8ff",
+
+        "icons": "#eafa0a",
+        "lines": "#eafa0a",
     }
 
 }
