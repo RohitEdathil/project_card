@@ -52,6 +52,7 @@ async def get_project_card(user: str, repo: str, template_name: str, theme: str 
         req = Request(f"https://api.github.com/repos/{user}/{repo}")
         req.add_header("Authorization",
                        f"token {GITHUB_TOKEN}")
+        req.add_header("Cache-Control", "no-cache")
         data = urlopen(req).read()
 
     except Exception as e:
