@@ -52,6 +52,9 @@ You can change the theme of the project card by adding a `theme` parameter to th
 
 [![Project Card](https://project-card-app.herokuapp.com/project_card/torvalds/linux?theme=dark-green)](https://github.com/torvalds/linux)
 
+- `grayscale`
+
+[![Project Card](https://project-card-app.herokuapp.com/project_card/torvalds/linux?theme=grayscale)](https://github.com/torvalds/linux)
 More themes coming soon ...
 
 ## Any contributions are welcome 😀

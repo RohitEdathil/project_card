@@ -46,6 +46,17 @@ THEMES = {
 
         "icons": "#eafa0a",
         "lines": "#eafa0a",
+    },
+    'greyscale': {
+        "background": "#333333",
+
+        "text_1": "#ffffff",
+        "text_2": "#d9d9d9",
+        "text_3": "#ffffff",
+        "text_4": "#d9d9d9",
+
+        "icons": "#ffffff",
+        "lines": "#ffffff",
     }
 
 }
